@@ -1,4 +1,4 @@
-# DPSE-CasADi
+# DSPE-CasADi
 This is an implementation of dynamical state and parameter estimation using the CasADi framework for setting up the sparse optimization problem.
 
 The original reference for DSPE can be found here:
