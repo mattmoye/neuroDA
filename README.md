@@ -1,5 +1,7 @@
-# DSPE-CasADi
+# neuroDA
 This is an implementation of dynamical state and parameter estimation using the CasADi framework for setting up the sparse optimization problem.
+Particularly, we utilize a variational data assimilation techinque with a control term to "nudge" the data towards the observations. 
+
 
 The original reference for DSPE can be found here:
 
