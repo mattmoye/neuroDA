@@ -244,5 +244,10 @@ end
 if isfield(probinfo,'VariableICs')
     VariableICs=probinfo.VariableICs;
 else
-    probinfo.VaraibleICs=struct('known',false);
+    probinfo.VaraibleICs=struct('known',false,'forceTimeZeroStart',0);
+end
+if isfield(probinfo,'ObsFunLoaded')
+    ObsFunLoaded=probinfo.ObsFunLoaded;
+else
+    probinfo.ObsFunLoaded=0;
 end
