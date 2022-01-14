@@ -96,8 +96,8 @@ VariableICs = probinfo.VariableICs; % struct, same size as osberved_variable_in_
 forceTimeZeroStart=VariableICs(1).forceTimeZeroStart;
 probinfo.forceTimeZeroStart=forceTimeZeroStart;
 ObsFunLoaded=probinfo.ObsFunLoaded;
-NumObsVar=1;
-IappScale=1e3;
+NumObsVar=1; % may get overwritten later
+IappScale=probinfo.IappScale;
 
 % needs to be supplied, else error
 %hessian_approximation='limited-memory';

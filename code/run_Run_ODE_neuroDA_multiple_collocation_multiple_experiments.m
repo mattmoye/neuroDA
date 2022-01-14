@@ -72,6 +72,12 @@ if nargin>4
         TSSinds=0;
     end
     
+      VarLoc = find(strcmpi(varargin, 'MAXITER'));
+    if ~isempty(VarLoc)
+        MAXITER = varargin{VarLoc(1)+1}; %Get the value after the param name
+    else
+        MAXITER=2500;
+    end
     
     VarLoc = find(strcmpi(varargin, 'TOL'));
     if ~isempty(VarLoc)
@@ -233,6 +239,14 @@ if nargin>4
         ObsFunLoaded=0;
     end
     
+       VarLoc = find(strcmpi(varargin, 'IappScale'));
+    if ~isempty(VarLoc)
+        IappScale = varargin{VarLoc(1)+1}; %Get the value after the param name
+    else
+        IappScale=1e3;
+        
+    end
+    
 end
 
 
@@ -280,7 +294,7 @@ pest_ind= find(PDATA(:,1)~=PDATA(:,2));
 Run_ODE_neuroDA_with_collocation_multiple_experiments(SeedNum,DATAFLAG,struct('MethodToUse'...
     ,METHODTOUSE,'varAnnealMin',varannealmin,'varAnnealMax',varannealmax,...
     'yinds',yinds,'defaultp',defaultp,'pest_ind',pest_ind,'Kinactivation',Kinactivation,...
-    'UseControl',UseControl,'MAXITER',2500,'linear_solver',linear_solver,...
+    'UseControl',UseControl,'MAXITER',MAXITER,'linear_solver',linear_solver,...
     'ACCEPTABLE_TOL',1e-6,'obj_scaling_factor',1,'TOL',TOL,...
     'mumps_mem_percent',1000,'mumps_pivtol',1e-8,'mumps_pivtolmax',1e-1,...
     'nlp_scaling_max_gradient',1,'max_hessian_perturbation',10^5,...
@@ -298,5 +312,5 @@ Run_ODE_neuroDA_with_collocation_multiple_experiments(SeedNum,DATAFLAG,struct('M
     'RampUpControl',RampUpControl,...
     'observed_variable_in_experiment',observed_variable_in_experiment,...
     'VariableICs',VariableICs,'NonUniform',NonUniform,'ScalingSupplied',ScalingSupplied,...
-    'ObsFunLoaded',ObsFunLoaded));
+    'ObsFunLoaded',ObsFunLoaded,'IappScale',IappScale));
 end
