@@ -1,4 +1,4 @@
-function [outputFileName,fighandles,titleName] = eval_rhabdomys_ests_neuroDA(filename,varargin)
+function [outputFileName,fighandles,titleName, TrueMinima] = eval_rhabdomys_ests_neuroDA(filename,varargin)
 
 %add(genpath('~/Dropbox/Shared-Folders/Matt - Casey'))
 
@@ -32,7 +32,9 @@ else
 end
 
 ODESOLVER=FlagStruct.ODESOLVER;
-
+h1=[];
+h2=[];
+h3=[];
 
 
 iCell=strfind(dataFileName,'Cell');
@@ -512,11 +514,7 @@ if FlagStruct.SaveData
         save(fulloutFileName,'compStruct');
     end
 end
-if FlagStruct.MakeFigs
 fighandles=[h1,h2,h3];
-else
-    fighandles=[];
-end
 %%
 % vesti=xtotal(1,:);
 % SAFETYNET=.1;
